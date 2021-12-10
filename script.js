@@ -1,40 +1,116 @@
 const questionsPool = [
-    {text:'What does HTML stand for?', points:1},
-    {text:'What is the HTML element for inserting a line break?', points:1},
-    {text:'What element do we use to link the CSS file to our HTML document', points:1},
-    {text:'What element do we use to link the JS file to our HTML document', points:1},
-    {text:'Write your name inside an HTML paragraph?', points:1},
-    {text:'Write your name inside an HTML Heading 1?', points:1},
-    {text:'What function can we use to display data in the console?', points:1},
-    {text:'What method can we use to pop up an alert in the browser?', points:1},
-    {text:'What function can we use to access an HTML element in javascript?', points:1},
-    {text:'What display function it should be only use for testing?', points:1},
-    {text:'What method or function can we use to print the content of the current window?', points:1},
-    {text:'How many ways do we have to declare a variable in Javascript?', points:1},
-    {text:'How do we create a variable called "a" that stores the value 123?', points:1},
-    {text:'How do we create a variable called "word" that stores the value "hello"?', points:1},
+    
+    {text:'¡Muchas gracias!', points:1, dificult: 0},
+    {text:'La pelota es azul', points:1, dificult: 0},
+    {text:'La pelota es amarilla', points:1, dificult: 0},
+    {text:'La pelota es rosa', points:1, dificult: 0},
+    {text:'La libro es rojo', points:1, dificult: 0},
+    {text:'La ventana es grande', points:1, dificult: 0},
+    {text:'La casa es pequeña', points:1, dificult: 0},
+    {text:'Gracias por tu ayuda', points:1, dificult: 0},
+    {text:'Disculpa, ¿Sabés que hora es?', points:1, dificult: 0},
+    {text:'Siento llegar tarde', points:1, dificult: 0},
+    {text:'Perdón, no entiendo', points:1, dificult: 0},
+    {text:'Yo me llamo Pedro', points:1, dificult: 0},
+    {text:'Él se llama David', points:1, dificult: 0},
+    {text:'Ella se llama Cristina', points:1, dificult: 0},
+    {text:'El perro se llama Happy', points:1, dificult: 0},
+    {text:'El gato se llama Freddy', points:1, dificult: 0},
+    {text:'Tengo quince años', points:1, dificult: 0},
+    {text:'Tengo veintiseis años', points:1, dificult: 0},
+    {text:'Tengo catorce años', points:1, dificult: 0},
+    {text:'Tengo trece años', points:1, dificult: 0},
+    {text:'Tengo dieciseis años', points:1, dificult: 0},
+    {text:'Tengo dieciocho años', points:1, dificult: 0},
+    {text:'Tengo diecinueve años', points:1, dificult: 0},
+    {text:'Tengo diez años', points:1, dificult: 0},
+    {text:'Tengo treinta y un años', points:1, dificult: 0},
+    {text:'¿Cuántos años tienes?', points:1, dificult: 0},
+    {text:'Él tiene un piano', points:1, dificult: 0},
+    {text:'Ella es una chica china', points:1, dificult: 0},
+    {text:'Ella es una chica española', points:1, dificult: 0},
+    {text:'Ella es una chica inglesa', points:1, dificult: 0},
+    {text:'El chico de Inglaterra es inglés', points:1, dificult: 0},
+    {text:'El chico de España es español', points:1, dificult: 0},
+    {text:'El chico de China es chino', points:1, dificult: 0},
+    {text:'El chico de China es chino', points:1, dificult: 0},
+    {text:'No entiendo', points:1, dificult: 0},
+    {text:'Soy estudiante', points:1, dificult: 0},
+    {text:'Mi teléfono es el uno uno dos', points:1, dificult: 0},
+    {text:'Vivo en Granada', points:1, dificult: 0},
+    {text:'Granada es una ciudad pequeña', points:1, dificult: 0},
+    {text:'Aquí la comida es deliciosa', points:1, dificult: 2},
+    {text:'Las flores son amarillas', points:1, dificult: 2},
+    {text:'El perro es muy simpático', points:1, dificult: 2},
+    {text:'La chica se llama Catalina', points:1, dificult: 2},
+    {text:'Mi padre vive en Barcelona', points:1, dificult: 2},
+    {text:'Mi hermano es muy antipático', points:1, dificult: 2},
+    {text:'La hermana de Peter es muy rica', points:1, dificult: 2},
+    {text:'David no puede comer helado', points:1, dificult: 2},
+    {text:'A el gato le gusta comer chocolate', points:1, dificult: 2},
+    {text:'¿Qué haces en el banco?', points:1, dificult: 2},
+    {text:'¿Qué come la tía?', points:1, dificult: 2},
+    {text:'Nosotros hacemos los deberes', points:1, dificult: 2},
+    {text:'Vosotros pensais en el perro', points:1, dificult: 2},
+    {text:'La puerta es marron', points:1, dificult: 0},
+    {text:'Las mesas son naranjas', points:1, dificult: 2},
+    {text:'Está triste porque no puede comer', points:1, dificult: 2},
+    {text:'Está contento porque tiene un piano', points:1, dificult: 2},
+    {text:'Mi casa tiene tres pisos', points:1, dificult: 2},
+    {text:'¿Puedes repetir?', points:1, dificult: 2},
+    {text:'¿Puedes hablar más despacio por favor?', points:1, dificult: 2},
+    {text:'Él va al hospital', points:1, dificult: 1},
+    {text:'Mi nueva casa está en una calle ancha', points:1, dificult: 3},
+    {text:'Ella parece una chica muy simpática', points:1, dificult: 1},
+    {text:'¿Qué significa eso?', points:1, dificult: 1},
+    {text:'Son la una en punto', points:1, dificult: 1},
+    {text:'Son la una y media', points:1, dificult: 1},
+    {text:'Son la una y cuarto', points:1, dificult: 1},
+    {text:'Son las dos y cuarto', points:1, dificult: 1},
+    {text:'Son las cuatro y media', points:1, dificult: 1},
+    {text:'Son las cinco y media', points:1, dificult: 1},
+    {text:'Son la una menos cuarto', points:1, dificult: 1},
+    {text:'Son las dos menos cuarto', points:1, dificult: 1},
+    {text:'Son las tres menos cuarto', points:1, dificult: 1},
+    {text:'Son las cuatro menos cuarto', points:1, dificult: 1},
+    {text:'Son las cinco menos cuarto', points:1, dificult: 1},
+    {text:'Son las seis menos cuarto', points:1, dificult: 1},
+    {text:'Son las siete menos cuarto', points:1, dificult: 1},
+    {text:'Son las siete y cinco', points:1, dificult: 1},
+    {text:'Son las siete y diez', points:1, dificult: 1},
+    {text:'Son las siete y veinte', points:1, dificult: 1},
+    {text:'Son las siete y veintitrés', points:1, dificult: 1},
+    {text:'Son las siete menos veinticinco', points:1, dificult: 1},
+    {text:'Son las ocho menos cuarto', points:1, dificult: 1},
+    {text:'Son las nueve menos cuarto', points:1, dificult: 1},
+    {text:'Son las diez menos cuarto', points:1, dificult: 1},
+    {text:'Son las once en punto', points:1, dificult: 1},
+    {text:'Son las doce en punto', points:1, dificult: 1},
+    {text:'Encantado de conocerte', points:1, dificult: 1},
+    {text:'¿A qué te dedicas?', points:1, dificult: 1},
+    {text:'¿De dónde eres?', points:1, dificult: 1},
+    {text:'¿Cómo se escribe eso?', points:1, dificult: 1},
+    {text:'La calle tiene muchos árboles', points:1, dificult: 3},
+    {text:'¿Qué quieres decir?', points:1, dificult: 2},
+    {text:'¿Qué te gusta hacer en tu tiempo libre?', points:1, dificult: 2},
+    {text:'En mi tiempo libre juego al baloncesto', points:1, dificult: 2},
+    {text:'En mi tiempo libre leo', points:1, dificult: 2},
+    {text:'En mi tiempo libre hago deporte', points:1, dificult: 2},
+    {text:'En mi tiempo libre estudio inglés', points:1, dificult: 2},
 ]
 
-const exercisePool = [
-    {text:'I have the follow element "<div class="important-text"></div>". Write the css to change the background color of this element.', points:10},
-    {text:'I want to change de color of the text of all the tag buttons to white. Write the css to change all the buttons text to white.', points:10},
-]
+
 
 const questionsDiv = document.getElementById('questions')
 
 var count = 1
 
-for(i=0;i<10;i++){
+for(i=0;i<12;i++){
     const number = getRandomNumber(questionsPool)
     const question = questionsPool[number]
     addQuestion(question.text,question.points)
 
     questionsPool.splice(number,1)
-}
-
-{
-    const question = exercisePool.pop(getRandomNumber(exercisePool))
-    addQuestion(question.text,question.points)    
 }
 
 print()
@@ -68,14 +144,14 @@ function addQuestion(textQuestion, pointsQuestion){
     text.classList.add('text')
     text.textContent = textQuestion
 
-    question.appendChild(points)
+  //  question.appendChild(points)
     question.appendChild(number)
     question.appendChild(text)
 
     questionsDiv.appendChild(question)
     question.style.display = 'flex'
     question.style.marginTop = '0.5rem'
-    question.style.marginBottom = '1.8rem'
+    question.style.marginBottom = '2rem'
     question.style.gap = '5px'
 
     count++    
