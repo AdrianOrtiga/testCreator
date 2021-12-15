@@ -44,7 +44,7 @@ const questionsPool = [
     {text:'El perro es muy simpático.', points:1, level: 2},
     {text:'La chica se llama Catalina.', points:1, level: 2},
     {text:'Mi padre vive en Barcelona.', points:1, level: 2},
-    {text:'Mi hermano es muy antipático.', points:1, level: 2},
+    {text:'Mi hermano es bastante antipático.', points:1, level: 2},
     {text:'La hermana de Peter es muy rica.', points:1, level: 2},
     {text:'David no puede comer helado.', points:1, level: 2},
     {text:'A el gato le gusta comer chocolate.', points:1, level: 2},
@@ -101,6 +101,11 @@ const questionsPool = [
     {text:'Juan no puede comer más libros.', points:1, level: 3},
     {text:'Juan no puede ir a la heladería.', points:1, level: 3},
     {text:'David no puede jugar al fútbol.', points:1, level: 3},
+    {text:'Para llegar a la comisaría tienes que ir recto', points:1, level: 3},
+    {text:'Para llegar al banco tienes que llegar al parque', points:1, level: 3},
+    {text:'Sevilla es una ciudad muy bonita', points:1, level: 3},
+    {text:'Barcelona es una ciudad bastante interesante', points:1, level: 3},
+    {text:'Valencia tiene setecientos noventa y un mil habitantes', points:1, level: 3},
 ]
 
 
