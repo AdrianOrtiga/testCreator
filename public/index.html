@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button onclick="printTest()">print</button>
+    <label for="numberOfquestions">Nº of questions: </label>
+    <input id="numberofquestions" class="input-num" name="numberofquestions" type="number" value="12"
+        min="1">
+    <select name="topic" id="topic" hidden>
+        <option value="">Any topic</option>
+        <option value="1">Basic expresions</option>
+        <option value="2">Personal information</option>
+        <option value="3">Physical description</option>
+        <option value="4">Family</option>
+        <option value="5">House objects</option>
+        <option value="6">colours</option>
+    </select>
+    <button onclick="createNewEvaluation()">New test</button>
+    <button onclick="createAndPrint()">New test and print</button>
+    <div id="test">
+        <header>
+            <br>
+            <div class="col">
+                <div>Name:</div>
+                <div>Class:</div>
+            </div>
+            <hr>
+            <div class="col">
+                <span id="Date">
+                    <script src="./js/getdate.js"></script>
+                </span>
+                <span></span>
+            </div>
+            <hr>
+            <div class="col">
+                <h1>Regular Check</h1>
+            </div>
+            <hr>
+        </header>
+        <h3>Traduce las siguientes frases</h3>
+        <div id="questions" class="questions">
+
+        </div>
+
+        <footer style="position: absolute;
+    bottom: 0;
+    width: 100%;" hidden>
+            <hr>
+            <div>
+                Living word
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="./js/script.js"></script>
+<script src="./js/print.js"></script>
+
+</html>
