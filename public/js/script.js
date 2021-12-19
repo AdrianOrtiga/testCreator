@@ -167,24 +167,28 @@ function createNewEvaluation() {
         const number = getRandomNumber(questions)
         const question = questions[number]
 
-        question.text.split(' ').forEach(word => {
-            console.log(word)
-            for(let index = 0; index < questions.length; index++){
-                const q = questions[index].text
-                let deleteQuestion = false
-                q.split(' ').forEach(questionWord => {
-                    if (questionWord == word) {
-                        // console.log(questionWord, word)
-                        deleteQuestion = true
-                    }
-                })
+        try{
+            question.text.split(' ').forEach(word => {
+                console.log(word)
+                for(let index = 0; index < questions.length; index++){
+                    const q = questions[index].text
+                    let deleteQuestion = false
+                    q.split(' ').forEach(questionWord => {
+                        if (questionWord == word) {
+                            // console.log(questionWord, word)
+                            deleteQuestion = true
+                        }
+                    })
 
-                if(deleteQuestion) {
-                    questions.splice(index, 1)
-                } 
-            }
-        })
-        console.log(questions)
+                    if(deleteQuestion) {
+                        questions.splice(index, 1)
+                    } 
+                }
+            })
+        }
+        catch{
+            alert(`Only ${count - 1} questions to show`)
+        }
 
         addQuestion(question.text, question.points)
 
