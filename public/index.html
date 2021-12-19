@@ -11,8 +11,7 @@
 <body>
     <button onclick="printTest()">print</button>
     <label for="numberOfquestions">Nº of questions: </label>
-    <input id="numberofquestions" class="input-num" name="numberofquestions" type="number" value="12"
-        min="1">
+    <input id="numberofquestions" class="input-num" name="numberofquestions" type="number" value="12" min="1">
     <select name="topic" id="topic" hidden>
         <option value="">Any topic</option>
         <option value="1">Basic expresions</option>
@@ -25,9 +24,10 @@
     <button onclick="createNewEvaluation()">New test</button>
     <button onclick="createAndPrint()">New test and print</button>
     <div id="test">
-        <header>
+        <header style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
             <br>
-            <div class="col">
+            <div class="col" style="display: flex;
+            gap: 45%;">
                 <div>Name:</div>
                 <div>Class:</div>
             </div>
@@ -40,18 +40,20 @@
             </div>
             <hr>
             <div class="col">
-                <h1>Regular Check</h1>
+                <h1 style="padding: 0;margin: 0;">Regular Check</h1>
             </div>
             <hr>
         </header>
-        <h3>Traduce las siguientes frases</h3>
-        <div id="questions" class="questions">
+        <div style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+            <h3>Traduce las siguientes frases</h3>
+            <div id="questions" class="questions">
 
+            </div>
         </div>
-
         <footer style="position: absolute;
     bottom: 0;
-    width: 100%;" hidden>
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
             <hr>
             <div>
                 Living word

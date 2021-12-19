@@ -9,7 +9,9 @@ const topics = [
     'time', // 7
     'months', // 8
     'Physical description', // 9
-
+    'Imperative', // 10
+    'Classroom Objects', // 11
+    'Adjectives for Objects' //12
 ]
 
 const questionsPool = [
@@ -18,17 +20,17 @@ const questionsPool = [
     { text: 'La pelota es amarilla.', points: 1, topics: [0, 6] },
     { text: 'La pelota es rosa.', points: 1, topics: [0, 6] },
     { text: 'El libro es rojo.', points: 1, topics: [0, 6] },
-    { text: 'La ventana es grande.', points: 1, topics: [0, 5] },
-    { text: 'La casa es pequeña.', points: 1, topics: [0, 5] },
+    { text: 'La ventana es grande.', points: 1, topics: [0, 5, 11, 12] },
+    { text: 'La casa es pequeña.', points: 1, topics: [0, 5, 12] },
     { text: 'Gracias por tu ayuda.', points: 1, topics: [0, 1] },
-    { text: 'Disculpa, ¿Sabés qué hora es?', points: 1, topics: [] },
-    { text: 'Siento llegar tarde.', points: 1, topics: [0] },
-    { text: 'Perdón, no entiendo.', points: 1, topics: [0] },
-    { text: 'Yo me llamo Pedro.', points: 1, topics: [0] },
-    { text: 'Él se llama David.', points: 1, topics: [0] },
-    { text: 'Ella se llama Cristina.', points: 1, topics: [0] },
-    { text: 'El perro se llama Happy.', points: 1, topics: [0] },
-    { text: 'El gato se llama Freddy.', points: 1, topics: [0] },
+    { text: 'Disculpa, ¿Sabés qué hora es?', points: 1, topics: [0, 1, 7] },
+    { text: 'Siento llegar tarde.', points: 1, topics: [0, 1] },
+    { text: 'Perdón, no entiendo.', points: 1, topics: [0, 1] },
+    { text: 'Yo me llamo Pedro.', points: 1, topics: [0, 1, 2] },
+    { text: 'Él se llama David.', points: 1, topics: [0, 1, 2] },
+    { text: 'Ella se llama Cristina.', points: 1, topics: [0, 1, 2] },
+    { text: 'El perro se llama Happy.', points: 1, topics: [0, 1, 2] },
+    { text: 'El gato se llama Freddy.', points: 1, topics: [0, 1, 2] },
     { text: 'Tengo quince años.', points: 1, topics: [0] },
     { text: 'Tengo veintiseis años.', points: 1, topics: [0] },
     { text: 'Tengo catorce años.', points: 1, topics: [0] },
@@ -119,6 +121,29 @@ const questionsPool = [
     { text: 'Sevilla es una ciudad muy bonita', points: 1, topics: [0] },
     { text: 'Barcelona es una ciudad bastante interesante', points: 1, topics: [0] },
     { text: 'Valencia tiene setecientos noventa y un mil habitantes', points: 1, topics: [0] },
+    { text: 'Levántate de la silla', points: 1, topics: [0] },
+    { text: 'Siéntate en el suelo', points: 1, topics: [0] },
+    { text: 'Mira a el techo', points: 1, topics: [0] },
+    { text: 'Coge el teléfono móvil', points: 1, topics: [0] },
+    { text: 'Escribe en la pizarra', points: 1, topics: [0] },
+    { text: 'Camina hacia la escuela', points: 1, topics: [0] },
+    { text: 'Toca la mesa que está al lado de la pared', points: 1, topics: [0] },
+    { text: 'No toques la mesa', points: 1, topics: [0] },
+    { text: 'El perro salta tres veces', points: 1, topics: [0] },
+    { text: 'Mira a la pizarra', points: 1, topics: [0] },
+    { text: 'La persona salta una vez', points: 1, topics: [0] },
+    { text: 'Las personas aplauden dos veces', points: 1, topics: [0] },
+    { text: 'El hombre da cuatro pasos hacia delante', points: 1, topics: [0] },
+    { text: 'El niño pulsa el botón rojo', points: 1, topics: [0] },
+    { text: 'La niña pulsa el botón verde', points: 1, topics: [0] },
+    { text: 'El chico está aburrido', points: 1, topics: [0] },
+    { text: 'Cuenta hasta cien.', points: 1, topics: [0] },
+    { text: 'Yo no soy una chica rica.', points: 1, topics: [0] },
+    { text: 'Tú eres un chico muy pobre.', points: 1, topics: [0] },
+    { text: '¿Quién es rico?', points: 1, topics: [0] },
+    { text: '¿Ella es una chica guapa o fea?', points: 1, topics: [0] },
+    { text: '¿Ella es una chica simpática o antipática?', points: 1, topics: [0] },
+    { text: '¿Cuantas casas hay en está ciudad?', points: 1, topics: [0] },
 ]
 
 
@@ -128,28 +153,42 @@ let testWords
 
 function createAndPrint() {
     createNewEvaluation()
-    print()
+    printTest()
 }
 
 function createNewEvaluation() {
     const numberOfQuestions = document.getElementById('numberofquestions').value
-    testWords = []
+    const questions = Array.from(questionsPool)
 
     questionsDiv.innerHTML = ''
     count = 1
 
     for (i = 0; i < numberOfQuestions; i++) {
-        const number = getRandomNumber(questionsPool)
-        
-        const question = questionsPool[number]
+        const number = getRandomNumber(questions)
+        const question = questions[number]
 
         question.text.split(' ').forEach(word => {
-            testWords.push(word)
-        });
+            console.log(word)
+            for(let index = 0; index < questions.length; index++){
+                const q = questions[index].text
+                let deleteQuestion = false
+                q.split(' ').forEach(questionWord => {
+                    if (questionWord == word) {
+                        // console.log(questionWord, word)
+                        deleteQuestion = true
+                    }
+                })
+
+                if(deleteQuestion) {
+                    questions.splice(index, 1)
+                } 
+            }
+        })
+        console.log(questions)
 
         addQuestion(question.text, question.points)
 
-        questionsPool.splice(number, 1)
+        questions.splice(number, 1)
     }
 }
 
@@ -199,32 +238,7 @@ var counter = 0
 var stopLoop = false
 function getRandomNumber(pool) {
     let number = Math.floor(Math.random() * (pool.length - 1))
-    counter++; console.log('-' + counter + '-')
-    console.log(testWords)
-
-    if(testWords == '') return number
-
-    console.log(theWordIsAlready(pool, number))
-    while(theWordIsAlready(pool, number) && !stopLoop){
-        if(number >= pool.length) number = -1
-        number++  
-        console.log(number)
-    }
 
     return number
 }
 
-function theWordIsAlready(pool, number) {
-
-    testWords.forEach(word => {
-        const wordsQuestion = pool[number].text.split(' ')
-        wordsQuestion.forEach(questionWord => {
-            if (questionWord === word) {
-                console.log(questionWord == word)
-                return true
-            }
-        });
-    });
-
-    return false
-}

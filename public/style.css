@@ -6,7 +6,6 @@
     width: 50px;
 }
 
-
 .col{
     display: flex;
     gap: 45%;
@@ -29,6 +28,7 @@ hr{
 }
 
 footer {
+    visibility: hidden;
     position: absolute;
     bottom: 0;
     width: 100%;
