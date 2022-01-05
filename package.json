@@ -2,7 +2,7 @@
   "name": "testCreatorSpanish",
   "version": "1.0.0",
   "description": "",
-  "main": "getdate.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "devStart": "nodemon server.js"
