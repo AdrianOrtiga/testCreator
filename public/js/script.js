@@ -25,7 +25,7 @@ const questionsPool = [
     { text: 'Esto es un libro de dinosaurios.', points: 1, topics: [0] },
     { text: '¿Tienes un bolígrafo azul?', points: 1, topics: [0] },
     { text: '¿Tienes un lápiz?', points: 1, topics: [0] },
-    { text: 'El lapiz es pequeño.', points: 1, topics: [0] },
+    { text: 'El lápiz es pequeño.', points: 1, topics: [0] },
     { text: 'Eso es una puerta.', points: 1, topics: [0] },
     { text: 'La ventana está abierta.', points: 1, topics: [0] },
     { text: 'La ventana está cerrada.', points: 1, topics: [0] },
@@ -85,7 +85,7 @@ const questionsPool = [
     { text: 'La cocinera es pobre.', points: 1, topics: [0] },
     { text: 'El peluquero es rico.', points: 1, topics: [0] },
     { text: 'La peluquera corta el pelo.', points: 1, topics: [0] },
-    { text: 'El médica trabaja en el hospital.', points: 1, topics: [0] },
+    { text: 'El médico trabaja en el hospital.', points: 1, topics: [0] },
     { text: 'La fotógrafa hace fotos con su cámara.', points: 1, topics: [0] },
     { text: 'La policía trabaja en la comisaría.', points: 1, topics: [0] },
     { text: 'La bombera trabaja en la estación de bomberos.', points: 1, topics: [0] },
@@ -103,9 +103,12 @@ const questionsPool = [
     { text: 'Hoy es diez de octubre.', points: 1, topics: [0] },
     { text: 'Hoy es diez de noviembre.', points: 1, topics: [0] },
     { text: 'Hoy es diez de diciembre.', points: 1, topics: [0] },
-    { text: 'Mil novecientos noventa y cinco.', points: 1, topics: [0] },
-    { text: 'Dos mil dieciseis.', points: 1, topics: [0] },
-    { text: 'Mil novecientos ochenta y siete.', points: 1, topics: [0] },
+    { text: 'Tengo mil novecientos noventa y cinco neveras.', points: 1, topics: [0] },
+    { text: 'Tienes dos mil dieciseis libros.', points: 1, topics: [0] },
+    { text: 'Tiene mil novecientos ochenta y siete mesas.', points: 1, topics: [0] },
+    { text: 'Tenemos ciento una silla.', points: 1, topics: [0] },
+    { text: 'Teneis dos cientos veintitres perros.', points: 1, topics: [0] },
+    { text: 'Tienen tres cientos veintitres gatos.', points: 1, topics: [0] },
     { text: 'Mi abuela es muy simpática.', points: 1, topics: [0] },
     { text: 'Mi abuelo es alto y moreno.', points: 1, topics: [0] },
     { text: 'Mi tio es delgado y castaño.', points: 1, topics: [0] },
@@ -125,6 +128,10 @@ const questionsPool = [
     { text: 'El perro es muy simpático.', points: 1, topics: [0] },
     { text: 'La chica se llama Catalina.', points: 1, topics: [0] },
     { text: 'Mi padre vive en Barcelona.', points: 1, topics: [0] },
+    { text: 'Tu Madre vive en Valencia.', points: 1, topics: [0] },
+    { text: 'Su tío hace deporte los fines de semana.', points: 1, topics: [0] },
+    { text: 'Nuestro primo juega al tenis.', points: 1, topics: [0] },
+    { text: 'Nuestra prima sabe jugar al tenis.', points: 1, topics: [0] },
     { text: 'Mi hermano es bastante antipático.', points: 1, topics: [0] },
     { text: 'La hermana de Peter es muy rica.', points: 1, topics: [0] },
     { text: 'David no puede comer helado.', points: 1, topics: [0] },
@@ -189,6 +196,16 @@ const questionsPool = [
     { text: 'Sevilla es una ciudad muy bonita.', points: 1, topics: [0] },
     { text: 'Barcelona es una ciudad bastante interesante.', points: 1, topics: [0] },
     { text: 'Valencia tiene setecientos noventa y un mil habitantes.', points: 1, topics: [0] },
+    { text: 'Valencia tiene muchos turistas en verano y primavera.', points: 1, topics: [0] },
+    { text: 'En verano hace mucho calor.', points: 1, topics: [0] },
+    { text: 'En primavera hace buen tiempo.', points: 1, topics: [0] },
+    { text: 'En otoño hace un poco de frio.', points: 1, topics: [0] },
+    { text: 'En invierno hace mucho frio.', points: 1, topics: [0] },
+    { text: 'Helena tiene bastante calor.', points: 1, topics: [0] },
+    { text: 'Yo tengo bastante frio.', points: 1, topics: [0] },
+    { text: '¿Tienes frio?.', points: 1, topics: [0] },
+    { text: '¿Tienes calor?.', points: 1, topics: [0] },
+    { text: 'Madrid es una ciudad de España.', points: 1, topics: [0] },
     { text: 'Levántate de la silla.', points: 1, topics: [0] },
     { text: 'Siéntate en el suelo.', points: 1, topics: [0] },
     { text: 'Mira a el techo.', points: 1, topics: [0] },
@@ -213,6 +230,9 @@ const questionsPool = [
     { text: '¿Ella es una chica simpática o antipática?', points: 1, topics: [0] },
     { text: '¿Cuantas casas hay en está ciudad?', points: 1, topics: [0] },
     { text: 'No me gusta hacer los deberes.', points: 1, topics: [0] },
+    { text: 'Helena va al supermercado para comprar agua.', points: 1, topics: [0] },
+    { text: 'Yo voy a la tienda de ropa para comprar un abrigo.', points: 1, topics: [0] },
+    { text: 'Hay nubes casi todos los días.', points: 1, topics: [0] },
 ]
 
 
@@ -291,6 +311,7 @@ function addQuestion(textQuestion, pointsQuestion) {
 
     const text = document.createElement('div')
     text.setAttribute('id', `text${count}`)
+    text.setAttribute('contenteditable',true)
     text.classList.add('text')
     text.textContent = textQuestion
 
