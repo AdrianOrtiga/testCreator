@@ -76,6 +76,14 @@ const questionsPool = [
     { text: 'Soy estudiante.', points: 1, topics: [0] },
     { text: 'Mi teléfono es el uno uno dos.', points: 1, topics: [0] },
     { text: 'Vivo en Granada.', points: 1, topics: [0] },
+    { text: 'Pedro tiene los ojos negros.', points: 1, topics: [0] },
+    { text: 'Marta tiene los ojos azules.', points: 1, topics: [0] },
+    { text: 'Marta tiene el pelo largo.', points: 1, topics: [0] },
+    { text: 'Maria tiene el pelo corto.', points: 1, topics: [0] },
+    { text: 'Jesús tiene el pelo rizado.', points: 1, topics: [0] },
+    { text: 'Jesús tiene el pelo rubio.', points: 1, topics: [0] },
+    { text: 'Penelope tiene los ojos verdes.', points: 1, topics: [0] },
+    { text: 'Juan tiene los ojos marrones.', points: 1, topics: [0] },
     { text: 'Granada es una ciudad pequeña.', points: 1, topics: [0] },
     { text: 'Aquí la comida es deliciosa.', points: 1, topics: [0] },
     { text: 'La profesora trabaja en la escuela.', points: 1, topics: [0] },
@@ -133,6 +141,19 @@ const questionsPool = [
     { text: 'Nuestro primo juega al tenis.', points: 1, topics: [0] },
     { text: 'Nuestra prima sabe jugar al tenis.', points: 1, topics: [0] },
     { text: 'Mi hermano es bastante antipático.', points: 1, topics: [0] },
+    { text: 'Tu hermana tiene el pelo liso.', points: 1, topics: [0] },
+    { text: 'Su hijo lleva una camiseta verde.', points: 1, topics: [0] },
+    { text: 'Mis padres tiene el pelo canoso.', points: 1, topics: [0] },
+    { text: 'Tus tíos tienen la nariz grande.', points: 1, topics: [0] },
+    { text: 'Sus primos son pelirojos.', points: 1, topics: [0] },
+    { text: 'Allen lleva gafas.', points: 1, topics: [0] },
+    { text: 'Soy alto y joven.', points: 1, topics: [0] },
+    { text: 'Tú eres estupido y viejo.', points: 1, topics: [0] },
+    { text: 'Tengo el pelo corto y moreno.', points: 1, topics: [0] },
+    { text: 'Somos un poco gordos.', points: 1, topics: [0] },
+    { text: 'Yo soy policia y trabajo en la comisaria.', points: 1, topics: [0] },
+    { text: 'Yo soy policia y llevo pantalones azules.', points: 1, topics: [0] },
+    { text: 'Soy morena tengo el pelo liso y largo.', points: 1, topics: [0] },
     { text: 'La hermana de Peter es muy rica.', points: 1, topics: [0] },
     { text: 'David no puede comer helado.', points: 1, topics: [0] },
     { text: 'El profesor es calvo.', points: 1, topics: [0] },
@@ -178,6 +199,7 @@ const questionsPool = [
     { text: 'Encantado de conocerte.', points: 1, topics: [0] },
     { text: '¿A qué te dedicas?', points: 1, topics: [0] },
     { text: '¿De dónde eres?', points: 1, topics: [0] },
+    { text: '¿Dónde vives?', points: 1, topics: [0] },
     { text: '¿Cómo se escribe eso?', points: 1, topics: [0] },
     { text: 'La calle tiene muchos árboles.', points: 1, topics: [0] },
     { text: 'Los árboles tienen las hojas verdes.', points: 1, topics: [0] },
@@ -226,6 +248,8 @@ const questionsPool = [
     { text: 'Yo no soy una chica rica.', points: 1, topics: [0] },
     { text: 'Tú eres un chico muy pobre.', points: 1, topics: [0] },
     { text: '¿Quién es rico?', points: 1, topics: [0] },
+    { text: 'Ella es alta, joven, guapa, delgada y morena.', points: 1, topics: [0] },
+    { text: 'Él es alto, joven, feo, delgado y moreno.', points: 1, topics: [0] },
     { text: '¿Ella es una chica guapa o fea?', points: 1, topics: [0] },
     { text: '¿Ella es una chica simpática o antipática?', points: 1, topics: [0] },
     { text: '¿Cuantas casas hay en está ciudad?', points: 1, topics: [0] },
@@ -313,6 +337,7 @@ function addQuestion(textQuestion, pointsQuestion) {
     text.setAttribute('id', `text${count}`)
     text.setAttribute('contenteditable',true)
     text.classList.add('text')
+    text.classList.add('clickable')
     text.textContent = textQuestion
 
     //  question.appendChild(points)
