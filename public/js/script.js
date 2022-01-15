@@ -130,13 +130,13 @@ const questionsPool = [
     { text: 'Sus primos son muy bajos y antipáticos.', points: 1, topics: [0] },
     { text: 'Ese gato está muy gordo.', points: 1, topics: [0] },
     { text: 'El perro lleva gafas.', points: 1, topics: [0] },
-    { text: 'Dos mil treinta y cinco.', points: 1, topics: [0] },
-    { text: 'Tres mil treinta y cinco.', points: 1, topics: [0] },
+    { text: 'Tengo dos mil treinta y cinco amigos.', points: 1, topics: [0] },
+    { text: 'Hay tres mil treinta y cinco perros.', points: 1, topics: [0] },
     { text: 'Las flores son amarillas.', points: 1, topics: [0] },
     { text: 'El perro es muy simpático.', points: 1, topics: [0] },
     { text: 'La chica se llama Catalina.', points: 1, topics: [0] },
     { text: 'Mi padre vive en Barcelona.', points: 1, topics: [0] },
-    { text: 'Tu Madre vive en Valencia.', points: 1, topics: [0] },
+    { text: 'Tu madre vive en Valencia.', points: 1, topics: [0] },
     { text: 'Su tío hace deporte los fines de semana.', points: 1, topics: [0] },
     { text: 'Nuestro primo juega al tenis.', points: 1, topics: [0] },
     { text: 'Nuestra prima sabe jugar al tenis.', points: 1, topics: [0] },
@@ -269,9 +269,15 @@ function createAndPrint() {
     printTest()
 }
 
-function createNewEvaluation() {
+function createNewEvaluation(repeatQuestions = true) {
     const numberOfQuestions = document.getElementById('numberofquestions').value
-    const questions = Array.from(questionsPool)
+    
+    if(repeatQuestions){
+        var questions = Array.from(questionsPool)
+    }
+    else{
+        var questions = questionsPool
+    }
 
     questionsDiv.innerHTML = ''
     count = 1
