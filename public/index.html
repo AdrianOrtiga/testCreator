@@ -9,9 +9,12 @@
 </head>
 
 <body>
-    <button onclick="printTest()">print</button>
     <label for="numberOfquestions">Nº of questions: </label>
     <input id="numberofquestions" class="input-num" name="numberofquestions" type="number" value="15" min="1">
+    <label for="level">Level: </label>
+    <input id="level" class="input-num" name="level" type="number" value="17" min="0">
+    <input id="regularCheck" name="repeat" type="checkbox" checked>
+    <label for="regularCheck">Regular Check </label>
     <select name="topic" id="topic" hidden>
         <option value="">Any topic</option>
         <option value="1">Basic expresions</option>
@@ -22,8 +25,8 @@
         <option value="6">colours</option>
     </select>
     <button onclick="createNewEvaluation()">New test</button>
-    <button onclick="createNewEvaluation(false)">New test without repeating questions</button>
-    <button onclick="createAndPrint()">New test and print</button>
+    <button onclick="printTest()">print</button>
+    <button onclick="createAndPrint()" hidden>New test and print</button>
     <div id="test">
         <header style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
             <br>
@@ -41,7 +44,7 @@
             </div>
             <hr>
             <div class="col">
-                <h1 class="clickable" style="padding: 0;margin: 0;" contenteditable="true">Regular Check</h1>
+                <h1 id="title" class="clickable" style="padding: 0;margin: 0;" contenteditable="true">Regular Check</h1>
             </div>
             <hr>
         </header>
@@ -63,6 +66,7 @@
     </div>
 </body>
 <script src="./js/script.js"></script>
+<script src="./js/questions.js"></script>
 <script src="./js/print.js"></script>
 
 </html>
