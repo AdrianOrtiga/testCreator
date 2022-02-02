@@ -26,26 +26,46 @@ function createAndPrint() {
 
 function createNewEvaluation() {
     const numberOfQuestions = document.getElementById('numberofquestions').value
-    const level = document.getElementById('level').value
+    const level = getLevel()
     const title = document.getElementById('title')
     title.textContent = `Regular Check: Level ${level}`
 
+    let questionsInTest = []
+    let wordsInTest = []
     var questions = Array.from(questionsPool.filter(question => question.level <= level))
    
 
     questionsDiv.innerHTML = ''
     count = 1
 
-    for (i = 0; i < numberOfQuestions; i++) {
+    let fuse = 0
+    while (questionsInTest.length < numberOfQuestions) {
         const number = getRandomNumber(questions)
         const question = questions[number]
+        
+        delQuestionsWithWordsAlreadyInTest(question, questions)
 
-        delQuestionsWithWordsAlreadyInTest(question)
+        if(question != undefined){
+            if(question.text == '') continue
 
-        addQuestion(question.text, question.points)
+            question.text.split(' ').forEach(word => wordsInTest.push(word))
 
-        questions.splice(number, 1)
+            addQuestion(question.text, question.points)
+            questionsInTest.push(question.text)
+
+            questions.splice(number, 1)
+        }
+        else {
+            questions = Array.from(questionsPool.filter(question => question.level <= level+1))
+        }
+
+        fuse++
+        if(fuse > 1000) break
     }
+
+    console.log(wordsInTest)
+    wordsInTest = [...new Set(wordsInTest)]
+    console.log(wordsInTest)
 }
 
 function addQuestion(textQuestion, pointsQuestion) {
@@ -100,15 +120,31 @@ function getRandomNumber(pool) {
     return number
 }
 
-function delQuestionsWithWordsAlreadyInTest(question){
+function delQuestionsWithWordsAlreadyInTest(question, questions){
+    let currentQuestion = question != undefined ? question.text : ''
+    currentQuestion = currentQuestion.replace('.','')
+    currentQuestion = currentQuestion.replace(',','')
+    currentQuestion = currentQuestion.replace('?','')
+    currentQuestion = currentQuestion.replace('¿','')
+    currentQuestion = currentQuestion.replace('!','')
+    currentQuestion = currentQuestion.replace('¡','')
+    currentQuestion = currentQuestion.toLowerCase()
+    
     try{
-        question.text.split(' ').forEach(word => {
+        currentQuestion.split(' ').forEach(word => {
             for(let index = 0; index < questions.length; index++){
-                const q = questions[index].text
+                let q = questions[index].text
+                q = q.replace('.','')
+                q = q.replace(',','')
+                q = q.replace('?','')
+                q = q.replace('¿','')
+                q = q.replace('!','')
+                q = q.replace('¡','')
+                q = q.toLowerCase()
+                
                 let deleteQuestion = false
                 q.split(' ').forEach(questionWord => {
                     if (questionWord == word) {
-                        // console.log(questionWord, word)
                         deleteQuestion = true
                     }
                 })
@@ -122,4 +158,35 @@ function delQuestionsWithWordsAlreadyInTest(question){
     catch{
         alert(`Only ${count - 1} questions to show`)
     }
+}
+
+function countDifferentWords(level = Infinity){
+    let words = []
+    
+    let questions = questionsPool.filter(question => question.level <= level)
+
+    for(let index = 0; index < questions.length; index++){
+        let q = questions[index].text
+        q = q.replace('.','')
+        q = q.replace(',','')
+        q = q.replace('?','')
+        q = q.replace('¿','')
+        q = q.replace('!','')
+        q = q.replace('¡','')
+        q = q.toLowerCase()
+
+        q.split(' ').forEach(questionWord => {        
+            words.push(questionWord)
+        })
+    }
+    words = [...new Set(words)]
+
+    return words
+}
+
+function getLevel() {
+    let level = document.getElementById('level').value
+    if(level > MAX_LEVEL) return MAX_LEVEL
+
+    return level
 }
