@@ -186,18 +186,18 @@ function countDifferentWords(level = Infinity) {
 
 function getLevel() {
 
-    const studentSelected = document.getElementById('student').value
+   // const studentSelected = document.getElementById('student').value
     const testName = document.getElementById('testName')
     const testClass = document.getElementById('testClass')
 
-    if (studentSelected != '') {
-        let student = students.find(student => student.fullName == studentSelected)
+    // if (studentSelected != '') {
+    //     let student = students.find(student => student.fullName == studentSelected)
 
-        testName.textContent = `Name: ${student.fullName}`
-        testClass.textContent = `Class: ${student.HR}`
+    //     testName.textContent = `Name: ${student.fullName}`
+    //     testClass.textContent = `Class: ${student.HR}`
 
-        return parseInt(student.Level)
-    }
+    //     return parseInt(student.Level)
+    // }
 
     testName.textContent = `Name: `
     testClass.textContent = `Class: `
