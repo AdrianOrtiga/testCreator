@@ -25,13 +25,54 @@
     <button onclick="createNewEvaluation()">New test</button>
     <button onclick="printTest()">print</button>
     <button onclick="createAndPrint()" hidden>New test and print</button>
+    <select name="student" id="student">
+        <option value="">empty</option>
+        <option value="Cai, Yiqing(Sky)">Cai, Yiqing(Sky)</option>
+        <option value="Chen, Baihan (Cora)">Chen, Baihan (Cora)</option>
+        <option value="Lv, Ruo.tong (Christine)">Lv, Ruo.tong (Christine)</option>
+        <option value="Qu, Jingzhi (Harry)">Qu, Jingzhi (Harry)</option>
+        <option value="Tang, Qixiang (QX)">Tang, Qixiang (QX)</option>
+        <option value="Wang, Yunhan (Irene)">Wang, Yunhan (Irene)</option>
+        <option value="Wu, Tianyi (Tina)">Wu, Tianyi (Tina)</option>
+        <option value="Xi, Chengtao (Sherman)">Xi, Chengtao (Sherman)</option>
+        <option value="Xie, Zuxuan (Mix)">Xie, Zuxuan (Mix)</option>
+        <option value="Xu, Yifei (Elisha)">Xu, Yifei (Elisha)</option>
+        <option value="Yang, Enyuan (Evan)">Yang, Enyuan (Evan)</option>
+        <option value="Yao, Huier (Jinna)">Yao, Huier (Jinna)</option>
+        <option value="Zhang, XiYue(Christina)">Zhang, XiYue(Christina)</option>
+        <option value="Zhou, Zihao (Allen)">Zhou, Zihao (Allen)</option>
+        <option value="Zhu, Boxuan (Peter)">Zhu, Boxuan (Peter)</option>
+        <option value="You, Siyu (Dora)">You, Siyu (Dora)</option>
+        <option value="Bao, Huijun (William)">Bao, Huijun (William)</option>
+        <option value="Fu, Yuyanxin (Clover)">Fu, Yuyanxin (Clover)</option>
+        <option value="Gao, Yiming (Ewing)">Gao, Yiming (Ewing)</option>
+        <option value="Allen He">Allen He</option>
+        <option value="Hu, Gaocheng (Derek)">Hu, Gaocheng (Derek)</option>
+        <option value="Hu, Zhenyang (John)">Hu, Zhenyang (John)</option>
+        <option value="Li, Wenbao (Jack)">Li, Wenbao (Jack)</option>
+        <option value="Li, Yulin (Alva)">Li, Yulin (Alva)</option>
+        <option value="Liao, Yichen (Ethan)">Liao, Yichen (Ethan)</option>
+        <option value="Ma, Junheng (Jone)">Ma, Junheng (Jone)</option>
+        <option value="Ma, Yihan(Charlotte)">Ma, Yihan(Charlotte)</option>
+        <option value="Qiu, Yuchen (David)">Qiu, Yuchen (David)</option>
+        <option value="Song, Yuting">Song, Yuting</option>
+        <option value="Wang, Yucheng (Angela)">Wang, Yucheng (Angela)</option>
+        <option value="Wu, Yuxin (Ella)">Wu, Yuxin (Ella)</option>
+        <option value="Wu, Zhixuan (William)">Wu, Zhixuan (William)</option>
+        <option value="Yao, Leyi (Stacy)">Yao, Leyi (Stacy)</option>
+        <option value="Yin, Weibin (Bill)">Yin, Weibin (Bill)</option>
+        <option value="Zhang, Kexin (Kiki)">Zhang, Kexin (Kiki)</option>
+        <option value="Zhang, Ruiming (Leo)">Zhang, Ruiming (Leo)</option>
+        <option value="Zhang, Yang (Catherine)">Zhang, Yang (Catherine)</option>
+        <option value="Zhang, Youze (Jay)">Zhang, Youze (Jay)</option>
+        <option value="Zhong, Lichen (Eric)">Zhong, Lichen (Eric)</option>
+    </select>
     <div id="test">
         <header style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
             <br>
-            <div class="col" style="display: flex;
-            gap: 45%;">
-                <div class="clickable" contenteditable="true">Name:</div>
-                <div>Class:</div>
+            <div class="col" style="display: flex;">
+                <div id="testName" class="clickable" contenteditable="true" style="width: 40vh;">Name:</div>
+                <div id="testClass" >HomeRoom:</div>
             </div>
             <hr>
             <div class="col">
@@ -47,7 +88,8 @@
             <hr>
         </header>
         <div style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-            <h3 contenteditable="true" class="clickable">Traduce las siguientes frases. (Translate the following sentences)</h3>
+            <h3 contenteditable="true" class="clickable">Traduce las siguientes frases. (Translate the following
+                sentences)</h3>
             <div id="questions" class="questions">
 
             </div>
@@ -67,4 +109,6 @@
 <script src="./js/questions.js"></script>
 <script src="./js/print.js"></script>
 <script src="./js/getmaxLevel.js"></script>
+<script src="./js/students.js"></script>
+
 </html>

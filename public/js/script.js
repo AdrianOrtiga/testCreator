@@ -33,7 +33,7 @@ function createNewEvaluation() {
     let questionsInTest = []
     let wordsInTest = []
     var questions = Array.from(questionsPool.filter(question => question.level <= level))
-   
+
 
     questionsDiv.innerHTML = ''
     count = 1
@@ -42,11 +42,11 @@ function createNewEvaluation() {
     while (questionsInTest.length < numberOfQuestions) {
         const number = getRandomNumber(questions)
         const question = questions[number]
-        
+
         delQuestionsWithWordsAlreadyInTest(question, questions)
 
-        if(question != undefined){
-            if(question.text == '') continue
+        if (question != undefined) {
+            if (question.text == '') continue
 
             question.text.split(' ').forEach(word => wordsInTest.push(word))
 
@@ -56,11 +56,11 @@ function createNewEvaluation() {
             questions.splice(number, 1)
         }
         else {
-            questions = Array.from(questionsPool.filter(question => question.level <= level+1))
+            questions = Array.from(questionsPool.filter(question => question.level <= level + 1))
         }
 
         fuse++
-        if(fuse > 1000) break
+        if (fuse > 1000) break
     }
 
     console.log(wordsInTest)
@@ -94,7 +94,7 @@ function addQuestion(textQuestion, pointsQuestion) {
 
     const text = document.createElement('div')
     text.setAttribute('id', `text${count}`)
-    text.setAttribute('contenteditable',true)
+    text.setAttribute('contenteditable', true)
     text.classList.add('text')
     text.classList.add('clickable')
     text.textContent = textQuestion
@@ -120,28 +120,28 @@ function getRandomNumber(pool) {
     return number
 }
 
-function delQuestionsWithWordsAlreadyInTest(question, questions){
+function delQuestionsWithWordsAlreadyInTest(question, questions) {
     let currentQuestion = question != undefined ? question.text : ''
-    currentQuestion = currentQuestion.replace('.','')
-    currentQuestion = currentQuestion.replace(',','')
-    currentQuestion = currentQuestion.replace('?','')
-    currentQuestion = currentQuestion.replace('¿','')
-    currentQuestion = currentQuestion.replace('!','')
-    currentQuestion = currentQuestion.replace('¡','')
+    currentQuestion = currentQuestion.replace('.', '')
+    currentQuestion = currentQuestion.replace(',', '')
+    currentQuestion = currentQuestion.replace('?', '')
+    currentQuestion = currentQuestion.replace('¿', '')
+    currentQuestion = currentQuestion.replace('!', '')
+    currentQuestion = currentQuestion.replace('¡', '')
     currentQuestion = currentQuestion.toLowerCase()
-    
-    try{
+
+    try {
         currentQuestion.split(' ').forEach(word => {
-            for(let index = 0; index < questions.length; index++){
+            for (let index = 0; index < questions.length; index++) {
                 let q = questions[index].text
-                q = q.replace('.','')
-                q = q.replace(',','')
-                q = q.replace('?','')
-                q = q.replace('¿','')
-                q = q.replace('!','')
-                q = q.replace('¡','')
+                q = q.replace('.', '')
+                q = q.replace(',', '')
+                q = q.replace('?', '')
+                q = q.replace('¿', '')
+                q = q.replace('!', '')
+                q = q.replace('¡', '')
                 q = q.toLowerCase()
-                
+
                 let deleteQuestion = false
                 q.split(' ').forEach(questionWord => {
                     if (questionWord == word) {
@@ -149,33 +149,33 @@ function delQuestionsWithWordsAlreadyInTest(question, questions){
                     }
                 })
 
-                if(deleteQuestion) {
+                if (deleteQuestion) {
                     questions.splice(index, 1)
-                } 
+                }
             }
         })
     }
-    catch{
+    catch {
         alert(`Only ${count - 1} questions to show`)
     }
 }
 
-function countDifferentWords(level = Infinity){
+function countDifferentWords(level = Infinity) {
     let words = []
-    
+
     let questions = questionsPool.filter(question => question.level <= level)
 
-    for(let index = 0; index < questions.length; index++){
+    for (let index = 0; index < questions.length; index++) {
         let q = questions[index].text
-        q = q.replace('.','')
-        q = q.replace(',','')
-        q = q.replace('?','')
-        q = q.replace('¿','')
-        q = q.replace('!','')
-        q = q.replace('¡','')
+        q = q.replace('.', '')
+        q = q.replace(',', '')
+        q = q.replace('?', '')
+        q = q.replace('¿', '')
+        q = q.replace('!', '')
+        q = q.replace('¡', '')
         q = q.toLowerCase()
 
-        q.split(' ').forEach(questionWord => {        
+        q.split(' ').forEach(questionWord => {
             words.push(questionWord)
         })
     }
@@ -185,8 +185,26 @@ function countDifferentWords(level = Infinity){
 }
 
 function getLevel() {
+
+    const studentSelected = document.getElementById('student').value
+    const testName = document.getElementById('testName')
+    const testClass = document.getElementById('testClass')
+
+    if (studentSelected != '') {
+        let student = students.find(student => student.fullName == studentSelected)
+
+        testName.textContent = `Name: ${student.fullName}`
+        testClass.textContent = `Class: ${student.HR}`
+
+        return parseInt(student.Level)
+    }
+
+    testName.textContent = `Name: `
+    testClass.textContent = `Class: `
+
+
     let level = document.getElementById('level').value
-    if(level > MAX_LEVEL) return MAX_LEVEL
+    if (level > MAX_LEVEL) return MAX_LEVEL
 
     return level
 }
